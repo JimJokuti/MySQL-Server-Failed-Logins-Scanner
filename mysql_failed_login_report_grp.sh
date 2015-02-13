@@ -1,0 +1,16 @@
+/var/www/html/dbtools/pci_scan/pci_scan_report.ksh BR1 2>&1 > /dev/null
+/var/www/html/dbtools/pci_scan/pci_scan_report.ksh EUN1 2>&1 > /dev/null
+/var/www/html/dbtools/pci_scan/pci_scan_report.ksh EUW1 2>&1 > /dev/null
+/var/www/html/dbtools/pci_scan/pci_scan_report.ksh ID1 2>&1 > /dev/null
+/var/www/html/dbtools/pci_scan/pci_scan_report.ksh KR1 2>&1 > /dev/null
+/var/www/html/dbtools/pci_scan/pci_scan_report.ksh LA1 2>&1 > /dev/null
+/var/www/html/dbtools/pci_scan/pci_scan_report.ksh LA2 2>&1 > /dev/null
+/var/www/html/dbtools/pci_scan/pci_scan_report.ksh NA1 2>&1 > /dev/null
+/var/www/html/dbtools/pci_scan/pci_scan_report.ksh OC1 2>&1 > /dev/null
+/var/www/html/dbtools/pci_scan/pci_scan_report.ksh PH1 2>&1 > /dev/null
+/var/www/html/dbtools/pci_scan/pci_scan_report.ksh EU1 2>&1 > /dev/null
+/var/www/html/dbtools/pci_scan/pci_scan_report.ksh SG1 2>&1 > /dev/null
+/var/www/html/dbtools/pci_scan/pci_scan_report.ksh TH1 2>&1 > /dev/null
+/var/www/html/dbtools/pci_scan/pci_scan_report.ksh TR1 2>&1 > /dev/null
+/var/www/html/dbtools/pci_scan/pci_scan_report.ksh TW1 2>&1 > /dev/null
+/var/www/html/dbtools/pci_scan/pci_scan_report.ksh VN1 2>&1 > /dev/null

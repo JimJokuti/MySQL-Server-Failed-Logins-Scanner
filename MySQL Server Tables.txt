@@ -1,0 +1,52 @@
+USE riot_sgdb
+;
+CREATE TABLE failed_logins_exempt_servers
+(
+    ip_addr varchar(15)   CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    status  enum('A','I') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    PRIMARY KEY USING BTREE (ip_addr)
+) ENGINE = InnoDB AVG_ROW_LENGTH = 2340 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci
+;
+
+CREATE TABLE failed_logins_history
+(
+    ip_addr  varchar(15)  CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    log_dt   datetime     NOT NULL,
+    user     varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    host     varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    pwd_used varchar(3)   CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    fail_cnt int(10)      NOT NULL,
+    PRIMARY KEY USING BTREE (ip_addr,user,host,log_dt)
+) ENGINE = InnoDB AVG_ROW_LENGTH = 85 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci
+;
+CREATE INDEX idx_failed_logins_history_log_dt
+    USING BTREE
+    ON failed_logins_history(log_dt)
+;
+
+CREATE TABLE failed_logins_scan_dt_range
+(
+    ip_addr   varchar(15)  CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    start_dt  datetime     NOT NULL,
+    end_dt    datetime     NOT NULL,
+    log_file  varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    update_dt datetime     NOT NULL,
+    PRIMARY KEY USING BTREE (ip_addr)
+) ENGINE = InnoDB AVG_ROW_LENGTH = 156 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci
+;
+
+CREATE TABLE failed_logins_users
+(
+    user    varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    ip_addr varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    status  char(1)     CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    PRIMARY KEY USING BTREE (user,ip_addr)
+) ENGINE = InnoDB AVG_ROW_LENGTH = 16384 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci
+;
+
+CREATE TABLE nexpose_servers
+(
+    ip_addr varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    PRIMARY KEY USING BTREE (ip_addr)
+) ENGINE = InnoDB AVG_ROW_LENGTH = 2340 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci
+;

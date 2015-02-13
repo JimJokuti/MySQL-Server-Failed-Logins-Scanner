@@ -1,0 +1,12 @@
+# Scan MySQL Servers for failed logins
+## Group 1 - KR1, LA1, SG1, VN1
+## Group 2 - BR1, EUN1, LA1, TR1
+## Group 3 - ID1, OC1, PH1, TW1
+## Group 4 - EUW1, NA1, RU1, TH1
+0,20,40 * * * * /var/www/html/dbtools/failed_login_scan/mysql_failed_login_scan_grp1.sh 2>&1 > /dev/null
+5,25,45 * * * * /var/www/html/dbtools/failed_login_scan/mysql_failed_login_scan_grp2.sh 2>&1 > /dev/null
+10,30,50 * * * * /var/www/html/dbtools/failed_login_scan/mysql_failed_login_scan_grp3.sh 2>&1 > /dev/null
+15,35,55 * * * * /var/www/html/dbtools/failed_login_scan/mysql_failed_login_scan_grp4.sh 2>&1 > /dev/null
+#
+# Report MySQL Servers that encountered failed logins
+0 8 * * mon /var/www/html/dbtools/failed_login_scan/mysql_failed_login_report_grp.sh 2>&1 > /dev/null
